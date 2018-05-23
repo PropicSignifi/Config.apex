@@ -67,7 +67,7 @@ public class CustomHandler extends Func {
         // Custom logic
         return 'config value';
     }
-
+    
     public override Object exec(Object arg1, Object arg2) {
         Map<String, String> params = (Map<String, String>)arg1;
         Map<String, Object> data = (Map<String, Object>)arg2;
@@ -85,7 +85,7 @@ After the config service is set up, we can use it globally to read configuration
 
 ```java
 String version = (String)configService.read('/System/version');
-// equivalent to
+// equivalent to 
 String version = (String)configService.get('/System/version');
 ```
 
@@ -104,10 +104,22 @@ We can write configurations too, using the config service.
 configService.write('/System/version', new Map<String, Object>{
     'value': '1.0.0'
 });
-// equivalent to
+// equivalent to 
 configService.put('/System/version', new Map<String, Object>{
     'value': '1.0.0'
 });
 ```
 
 We can pass in both params from the request config url and the data of `Map<String, Object>`.
+
+### Integrations
+Config.apex has a good integration with custom settings and SObjects.
+
+```java
+configService.onRead('/System/CustomButton/list', new SObjectHandler('Custom_Button__c')
+    .fetch('SELECT Id, Name FROM Custom_Button__c')
+    .then(R.pluck.apply('Name'))
+);
+```
+
+`SObjectHandler` can be used to handle SObjects as well as custom setting objects, to easily manage query, insert, update and delete operations.
