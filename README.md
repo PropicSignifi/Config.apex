@@ -116,7 +116,7 @@ We can pass in both params from the request config url and the data of `Map<Stri
 Config.apex has a good integration with custom settings and SObjects.
 
 ```java
-configService.onRead('/System/CustomButton/list', new SObjectHandler('Custom_Button__c')
+configService.onRead('/System/CustomButton/list', new Config.SObjectHandler('Custom_Button__c')
     .fetch('SELECT Id, Name FROM Custom_Button__c')
     .then(R.pluck.apply('Name'))
 );
