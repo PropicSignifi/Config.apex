@@ -1,0 +1,130 @@
+---
+title: "Home"
+description: "Config.apex is a library to manage your configurations and cache in an elegant way."
+---
+
+{namespace pageIndex}
+
+/**
+ */
+{template .render}
+	{@param site: ?}
+
+	{call main.render data="all"}
+		{param content kind="html"}
+			{call .header data="all" /}
+			{call .why /}
+			{call .features /}
+			{call .how /}
+			{call .highlights /}
+			{call Footer.render data="all" /}
+		{/param}
+	{/call}
+{/template}
+
+/**
+ */
+{template .header}
+	{@param site: ?}
+
+	<header class="header">
+		<div class="container">
+			<h1 class="header-title">{$site.title}</h1>
+			<h2 class="header-subtitle">{$site.index.description}</h2>
+			<div class="btn-group">
+				<a href="/config-apex/tutorials/getting_started/step_1.html" class="btn btn-accent btn-sm">Get Started</a>
+				<a href="https://github.com/Click-to-Cloud/Config.apex/" class="btn btn-success btn-sm">GitHub</a>
+				<a href="/" onclick="location.assign('/')" class="btn btn-default btn-sm">Not Interested</a>
+			</div>
+		</div>
+	</header>
+{/template}
+
+/**
+ */
+{template .why}
+	<article class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-2">
+					<h3 class="about-title">Why Config.apex?</h3>
+					<p class="about-description">We may have been deep in the trouble of managing configurations through different sources, like custom settings, some SObjects, or even from web services. Config.apex is aimed to provide a universal way to access and manage your configurations. The ultimate goal is, "One Config API, Various Config Providers". Behind Config.apex, we use a standalone CacheStore to effectively manipulate Salesforce Platform Cache.</p>
+				</div>
+			</div>
+		</div>
+	</article>
+{/template}
+
+/**
+ */
+{template .features}
+	<div class="features">
+		<div class="container">
+			<div class="row">
+				<section class="feature col-md-4 col-md-offset-2">
+					<h3 class="feature-title">Simple API</h3>
+					<p class="feature-description">Config.apex has very simple APIs to use.</p>
+				</section>
+				<section class="feature col-md-4">
+					<h3 class="feature-title">Extensible</h3>
+					<p class="feature-description">Besides integrations with SObjects and custom settings, Config.apex is extensible to add new config implementations.</p>
+				</section>
+				<section class="feature col-md-4">
+					<h3 class="feature-title">Cache Management</h3>
+					<p class="feature-description">Config.apex provides an efficient cache mechanism to use.</p>
+				</section>
+			</div>
+		</div>
+	</div>
+{/template}
+
+/**
+ */
+{template .how}
+	<article class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-2">
+					<h3 class="about-title">Easy Config System</h3>
+					<p class="about-description">With Config.apex, you can build your own config systems easily.</p>
+				</div>
+			</div>
+		</div>
+	</article>
+{/template}
+
+/**
+ */
+{template .highlights}
+	<div class="highlights">
+		<div class="container">
+			<section class="highlight row">
+				<div class="col-md-6 col-md-offset-2">
+					<h4 class="highlight-title">Unified API</h4>
+					<p class="highlight-description">Config.apex offers a unified API to access configurations with difference sources.</p>
+				</div>
+				<div class="col-md-5 col-md-offset-1">
+					<img class="highlight-image" src="/config-apex/images/highlight_1.png" alt="Unified API" height="200">
+				</div>
+			</section>
+			<section class="highlight row">
+				<div class="col-md-6 col-md-push-9">
+					<h4 class="highlight-title">Good Integration</h4>
+					<p class="highlight-description">Config.apex has integrations available with SObjects/CustomSettings.</p>
+				</div>
+				<div class="col-md-5 col-md-offset-2 col-md-pull-6">
+					<img class="highlight-image" src="/config-apex/images/highlight_2.png" alt="Good Integration" height="200">
+				</div>
+			</section>
+			<section class="highlight row">
+				<div class="col-md-6 col-md-offset-2">
+					<h4 class="highlight-title">Cache Management</h4>
+					<p class="highlight-description">Config.apex has a standalone CacheStore to provide easy-to-use and efficient cache system.</p>
+				</div>
+				<div class="col-md-5 col-md-offset-1">
+					<img class="highlight-image" src="/config-apex/images/highlight_3.png" alt="Cache Management" height="200">
+				</div>
+			</section>
+		</div>
+	</div>
+{/template}
